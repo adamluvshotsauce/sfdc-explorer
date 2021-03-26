@@ -1,0 +1,27 @@
+<nav class="navbar navbar-light bg-light nav-pills">
+    <span class="navbar-brand mb-0 h1">
+        <a href="/" class="navbar-brand">SFDC Explorer</a>
+    </span>
+    <ul class="nav justify-content-end">
+        {{#if dataFetched}}
+            {{#if (isNot preview)}}
+                <li class="nav-item">
+                    <a id="preview" class="btn btn-secondary mr-3" href="/preview">Preview</a>
+                </li>
+            {{/if}}
+            <li class="nav-item">
+                <a id="download" class="btn btn-primary mr-5" href="/download">Download</a>
+            </li>
+        {{/if}}
+
+        {{#if (isNot locals.isAuthenticated)}}
+            <li class="nav-item">
+                <button id="login" class="btn btn-light">Login</button>
+            </li>
+        {{else}}
+            <li class="nav-item">
+                <button id="logout" class="btn btn-outline-dark">Logout</button>
+            </li>
+        {{/if}}
+    </ul>
+</nav>

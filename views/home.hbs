@@ -1,0 +1,16 @@
+<div class="container">
+    {{!-- Login Modal --}}
+    {{> loginModal}}
+
+    {{!-- Input --}}
+    {{> queryInput}}
+
+    {{!-- Output --}}
+    <div id="output" class="mb-3">
+        {{#if loading}}
+            {{!-- {{> spinner}} --}}
+        {{else}}
+            {{> queryResults}}
+        {{/if}}
+    </div>
+</div>

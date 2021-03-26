@@ -1,0 +1,38 @@
+{{#if preview}}
+    <div class="card">
+        {{#if (isNotZero count)}}
+            <div class="card-header text-muted text-right">
+                Record Count: {{count}}
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped mb-3">
+                        <thead class="text-nowrap">
+                            <tr>
+                                {{#each columns}}
+                                    <th scope="col">{{this}}</th>
+                                {{/each}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each data}}
+                                <tr>
+                                    {{#each ../columns}}
+                                        <td scope="row">{{lookup .. this}}</td>
+                                    {{/each}}
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer text-muted text-right">
+                Record Count: {{count}}
+            </div>
+        {{else}}
+            <div class="my-3">
+                <p class="text-muted text-center">No records found.</p>
+            </div>
+        {{/if}}
+    </div>
+{{/if}}

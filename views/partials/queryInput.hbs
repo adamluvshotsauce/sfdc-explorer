@@ -1,0 +1,115 @@
+<form method="POST" action="/query">
+    <div class="card my-4">
+        <div class="card-header text-muted text-left">
+            Enhanced SOQL
+            <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <button id="submitBtn" class="btn btn-success" type="submit">
+                    Execute
+                </button>
+                <a href="/" class="btn btn-outline-secondary float-right">Clear</a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            {{!-- Query Input --}}
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">SOQL</span>
+                    </div>
+                    <textarea type="text" name="query" class="form-control" placeholder="Enter some query here...">{{form.query}}</textarea>
+                </div>
+            </div>
+
+            {{!-- Calculations --}}
+            <div class="input-group mt-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Calculations</span>
+                </div>
+
+                <select class="custom-select" name="calctype">
+                    <option value="" selected>Choose a type...</option>
+                    {{#each calcTypeOptions}}
+                        <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}>{{name}}</option>
+                    {{/each}}
+                </select>
+
+                <input type="text" name="calcparam1" class="form-control" value="{{form.calcparam1}}" placeholder="Type a field api name...">
+                
+                <select class="custom-select" name="calcoperation">
+                    <option value="" selected>Choose an operation...</option>
+                    {{#each calcOperations}}
+                        <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}>{{name}}</option>
+                    {{/each}}
+                </select>
+
+                <input type="text" name="calcparam2" class="form-control" value="{{form.calcparam2}}" placeholder="Type a field api name...">
+            </div>
+
+
+            {{!-- Advance Filters --}}
+            <div class="input-group mt-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Advance Filter</span>
+                </div>
+                <select class="custom-select" name="advcalcfilter">
+                    <option value="" selected>Choose a calculated filter...</option>
+                    {{#each calcOperations}}
+                        <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}>{{name}}</option>
+                    {{/each}}
+                </select>
+                <select class="custom-select" name="advoperator">
+                    <option value="" selected>Choose an operator...</option>
+                    {{#each advOperatorOptions}}
+                        <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}>{{name}}</option>
+                    {{/each}}
+                </select>
+                <input type="text" name="advfilterparam" class="form-control" value="{{form.advfilterparam}}" placeholder="Type a field api name...">
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="card my-4">
+        <div class="card-header text-muted text-left">
+            Enhanced Sub-Query
+        </div>
+
+        <div class="card-body">
+            {{!-- Transpose Child Field --}}
+            <div class="input-group mt-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Transpose</span>
+                </div>
+                <input type="text" name="transposeobj" class="form-control" value="{{form.transposeobj}}" placeholder="Type a child object api name...">
+                <input type="text" name="transposefield" class="form-control" value="{{form.transposefield}}" placeholder="Type a field api name...">
+            </div>
+
+            {{!-- Sub-Query Calculations --}}
+            <div class="input-group mt-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Calculations</span>
+                </div>
+                
+                <select class="custom-select" name="sqcalctype">
+                    <option selected>Choose a type...</option>
+                    {{#each sqCalcTypeOptions}}
+                        <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}>{{name}}</option>
+                    {{/each}}
+                </select>
+                
+                <input type="text" name="sqcalcparam1" class="form-control" value="{{form.sqcalcparam1}}" placeholder="Type a field api name...">
+                
+                <select class="custom-select" name="sqcalcoperation">
+                    <option selected>Choose an operation...</option>
+                    {{#each sqCalcOperations}}
+                        <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}>{{name}}</option>
+                    {{/each}}
+                </select>
+
+                <input type="text" name="sqcalcparam2" class="form-control" value="{{form.sqcalcparam2}}" placeholder="Type a field api name...">
+            </div>
+        </div>
+    </div>
+</form>

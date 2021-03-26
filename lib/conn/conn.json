@@ -1,0 +1,4 @@
+{
+  "instanceUrl": "<INSERT INSTANCE URL HERE EX: https://login.salesforce.com>",
+  "accessToken": "<INSERT ACCESS TOKEN HERE>"
+}

@@ -1,0 +1,16 @@
+{
+  "query": "",
+  "calctype": "",
+  "calcparam1": "",
+  "calcparam2": "",
+  "calcoperation": "",
+  "advcalcfilter": "",
+  "advoperator": "",
+  "advfilterparam": "",
+  "transposeobj": "",
+  "transposefield": "",
+  "sqcalctype": "Choose a type...",
+  "sqcalcparam1": "",
+  "sqcalcparam2": "",
+  "sqcalcoperation": "Choose an operation..."
+}

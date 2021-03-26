@@ -1,0 +1,40 @@
+<div id="loginModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <form method="POST" action="/login">
+                <div class="modal-header">
+                    <h5 class="modal-title">SFDC Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="instanceUrl">Instance URL</label>
+                        <select id="instanceUrl" name="sfdcinstanceurl" class="form-control">
+                            <option value="" selected>Choose an instance...</option>
+                            {{#each sfdcInstanceUrls}}
+                                <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}>{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input id="username" name="sfdcusername" type="email" class="form-control" placeholder="Enter your username...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" name="sfdcpassword" type="password" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
